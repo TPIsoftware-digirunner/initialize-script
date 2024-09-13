@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: sql-init
+spec:
+  completions: 1
+  parallelism: 1
+  ttlSecondsAfterFinished: 60
+  template:
+    metadata:
+      name: sql-init
+    spec:
+      containers:
+      - name: job-container
+        image: gcr.io/tpisoftware-digirunner-public/digirunner/sql-init:1.0.1
+        command: ['/bin/bash', '-c', '/root/init_db.sh']
+        workingDir: /root/
+        env:
+        - name: DB_PASSWORD
+          value: $DB_PASSWORD
+        - name: DB_INSTANCE
+          value: $DB_INSTANCE
+      restartPolicy: Never
+

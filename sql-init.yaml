@@ -17,8 +17,8 @@ spec:
         workingDir: /root/
         env:
         - name: DB_PASSWORD
-          value: $DB_PASSWORD
+          value: sed_password
         - name: DB_INSTANCE
-          value: $DB_INSTANCE
+          value: sed_instance
       restartPolicy: Never
 

@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: job-container
-        image: gcr.io/tpisoftware-digirunner-public/digirunner/sql-init:1.0.1
+        image: gcr.io/tpisoftware-digirunner-public/digirunner/sql-init:1.0.2
         command: ['/bin/bash', '-c', '/root/init_db.sh']
         workingDir: /root/
         env:

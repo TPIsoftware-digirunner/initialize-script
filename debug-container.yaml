@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sql-client
+spec:
+  containers:
+  - name: debug-container
+    image: gcr.io/tpisoftware-digirunner-public/digirunner/sql-init:1.0.2
+    command: ['/bin/bash', '-c', 'sleep 3660']
+    workingDir: /root/
+  restartPolicy: Never
